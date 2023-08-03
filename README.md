@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Weather App in ReactJS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a weather app developed using ReactJS that allows users to search for cities and view the current weather as well as a 7-day forecast.
 
-## Available Scripts
+**Live demo**: https://weather-with-cities.netlify.app/
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+### App.js
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The entry point of the application that handles state management and data fetching. It contains the main container and integrates the Search component for city search and the CurrentWeather component for displaying the current weather. Additionally, it utilizes the Forecast component to show the 7-day weather forecast.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Search.js
 
-### `npm test`
+The Search component provides a search input box where users can enter the name of a city. It uses the `AsyncPaginate` from `react-select-async-paginate` to asynchronously fetch city suggestions from the server. Upon selecting a city, it triggers a search change event and passes the city's latitude and longitude to the parent component (App.js) for weather data fetching.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### CurrentWeather.js
 
-### `npm run build`
+The CurrentWeather component displays the current weather information for the selected city. It shows the city name, weather description, temperature, and other details such as feels like temperature, wind speed, humidity, and pressure.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Forecast.js
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The Forecast component presents a 7-day weather forecast in an accordion-style format. It displays the weather icon, weather description, minimum and maximum temperatures for each day. When users click on a particular day, it expands to show additional details like pressure, humidity, clouds, wind speed, sea level, and feels like temperature.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How to Use
 
-### `npm run eject`
+1. Open the app in your web browser.
+2. In the search input box, type the name of the city you want to search for.
+3. As you type, the app will suggest matching cities with a population of at least one million.
+4. Select your desired city from the suggestions.
+5. The current weather for the selected city will be displayed, including temperature, weather description, and other details.
+6. Scroll down to see the 7-day forecast.
+7. Click on a specific day to view additional weather details for that day.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Technologies Used
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- ReactJS for building the user interface and managing state.
+- OpenWeather API: https://openweathermap.org/
+- GeoDB Cities API: https://rapidapi.com/wirefreethought/api/geodb-cities/
+- `react-select-async-paginate` for handling asynchronous city search suggestions.
+- `react-accessible-accordion` for creating an accessible accordion-style component to display the 7-day weather forecast.
+- CSS for styling the app and making it visually appealing.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Note: To run this app, you need to provide your own weather API key, which should be set in the `WEATHER_API_KEY` constant in the `api.js` file.

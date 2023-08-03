@@ -1,3 +1,4 @@
+![Weather-App Screenshot](/public/screenshot.png)
 # Weather App in ReactJS
 
 This is a weather app developed using ReactJS that allows users to search for cities and view the current weather as well as a 7-day forecast.
